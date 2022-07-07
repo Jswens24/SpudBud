@@ -7,12 +7,12 @@ const cors = require('cors');
 app.use(express.json());
 app.use(cors());
 
-const { createName, gameName } = require('./controller');
+const { createName, gameNamePlace, gameAccessories } = require('./controller');
 
 app.post('/api/name', createName);
 
-app.get('/api/nameInGame', gameName);
-// app.get('/api/nameInGame', getRandomPlace);
+app.get('/api/gameNamePlace', gameNamePlace);
+app.get('/api/gameAccessories', gameAccessories);
 
 
 

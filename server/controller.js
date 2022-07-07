@@ -13,10 +13,7 @@ const sequelize = new Sequelize(CONNECTION_STRING, {
 });
 
 let potatoName = 'p';
-// let randomPlaceIndex = Math.floor(Math.random() * 7);
 
-// let places = sequelize.query(`SELECT * FROM places;`)
-// console.log(places[randomPlaceIndex()]);
 
 const createName = (req, res) => {
     potatoName = req.body.nameInput;
@@ -24,22 +21,38 @@ const createName = (req, res) => {
     res.status(200).send(potatoName);
 }
 
-const gameName = (req, res) => {
+const gameNamePlace = (req, res) => {
     // console.log(potatoName)
     sequelize.query(`SELECT * FROM places;`)
         .then((dbResult) => {
-            console.log(dbResult)
+            const placesArr = dbResult[0];
+            let randomPlaceIndex = Math.floor(Math.random() * placesArr.length);
+            const randomPlace = placesArr[randomPlaceIndex];
+            const resBody = {
+                potatoName,
+                randomPlace
+            }
+            res.status(200).send(resBody);
         })
-    res.status(200).send(potatoName);
+        .catch((err) => {
+            console.log(err);
+            res.status(403)
+        })
 }
 
-// const getRandomPlace = (req, res) => {
-//     sequelize.query(`SELECT * FROM places;`)
-//         .then((dbResult) => {
-//             console.log(dbResult)
-//             res.status(200).send(dbResult)
-//         })
-//         .catch((err) => console.log(err));
-// }
+const gameAccessories = (req, res) => {
+    sequelize.query(`SELECT * FROM accessories;`)
+        .then((dbResult) => {
+            const accessoriesArr = dbResult[0];
+            res.status(200).send(accessoriesArr);
+        })
+        .catch((err) => {
+            console.log(err)
+            res.status(403);
+        })
+}
 
-module.exports = { createName, gameName }
+
+
+
+module.exports = { createName, gameNamePlace, gameAccessories }
