@@ -17,15 +17,6 @@ axios.get('http://localhost:4004/api/gameAccessories')
             accessoriesImg.src = accessories.accessories_url;
             accessoriesImg.classList.add('accessories-pic');
             accessoriesContainer.appendChild(accessoriesImg);
-
-            // accessoriesContainer.innerHTML = `<img src="${accessories.accessories_url}" alt="${accessories.accessories_name}">`
         })
-
-        // for (let i = 0; i < 24; i++) {
-        //     console.log(res.data[i]);
-        //     accessoriesContainer.innerHTML = `<img src="${res.data[i].accessories_url}" alt="${res.data[i].accessories_name}">`
-        // }
-
-
     })
 
