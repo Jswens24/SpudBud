@@ -5,16 +5,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./gamepage.css">
     <title>SpudBud</title>
 </head>
 
 <body>
     <header id="name-header"></header>
-    <main>
-        <div id="potato-man"></div>
+    <h5>(Click 3 items that you will need with this location)</h5>
+    <section class="potato-with-acces-container">
+        <div id="potato-man">
+            <img src="../pictures/potato-head copy.png1.png" alt="SpudBud" class="spudbud-img">
+        </div>
         <div id="accessories-container"></div>
-    </main>
-
+    </section>
+    <section>
+        <div class="three-items-container">
+            <div class="item-one selected-item"></div>
+            <div class="item-two selected-item"></div>
+            <div class="item-three selected-item"></div>
+        </div>
+        <button>Submit</button>
+    </section>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="startpage.js"></script>
