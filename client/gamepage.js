@@ -1,50 +1,67 @@
 const nameHeader = document.querySelector('#name-header');
 const accessoriesContainer = document.querySelector('#accessories-container');
 const accessoriesPic = document.querySelectorAll('.accessories-pic');
-const selectedItemOne = document.querySelector('.item-one');
+const selectedItem0 = document.querySelector('.item-0');
+const selectedItem1 = document.querySelector('.item-1');
+const selectedItem2 = document.querySelector('.item-2');
+
+let randomPlaceId = null
+let correctArr = []
 
 //gets the name and (place from database)
 axios.get('http://localhost:4004/api/gameNamePlace')
     .then((res) => {
         console.log(res.data)
         const { potatoName, randomPlace } = res.data;
+        randomPlaceId = randomPlace.places_id;
         nameHeader.innerHTML = `<h3>${potatoName} Potato is going ${randomPlace.places_name}! </h3>`
+
+        //gets accessories from database
+        axios.get('http://localhost:4004/api/gameAccessories')
+            .then((res) => {
+                const sqlAccessories = res.data;
+                // correctArr = sqlAccessories.filter(element => )
+                const shuffledAccessories = sqlAccessories.sort((a, b) => 0.5 - Math.random());
+                shuffledAccessories.forEach((accessories) => {
+                    const accessoriesImg = document.createElement('img');
+                    accessoriesImg.src = accessories.accessories_url;
+                    accessoriesImg.classList.add('accessories-pic');
+                    accessoriesImg.addEventListener('click', moveToSelectedItem)
+                    accessoriesContainer.appendChild(accessoriesImg);
+                })
+            });
+
     })
     .catch((err) => console.log(err));
 
-//gets accessories from database
-axios.get('http://localhost:4004/api/gameAccessories')
-    .then((res) => {
-        const sqlAccessories = res.data;
-        const shuffledAccessories = sqlAccessories.sort((a, b) => 0.5 - Math.random());
-        shuffledAccessories.forEach((accessories) => {
-            const accessoriesImg = document.createElement('img');
-            accessoriesImg.src = accessories.accessories_url;
-            accessoriesImg.classList.add('accessories-pic');
-            accessoriesImg.addEventListener('click', (evt) => {
-                console.log(evt);
-            })
-            accessoriesContainer.appendChild(accessoriesImg);
-        })
-    });
 
 
-
-//front end functions 
+//moves items to the boxes
+const selectedArr = [];
 
 const moveToSelectedItem = (evt) => {
-    console.log(evt.target);
+    const selectUrl = evt.target.src;
+    if (selectedArr.length < 3) {
+        selectedArr.push(selectUrl);
+    }
+    selectedItem0.innerHTML = `<img src='${selectedArr[0] || ''}'>`
+    selectedItem1.innerHTML = `<img src='${selectedArr[1] || ''}'>`
+    selectedItem2.innerHTML = `<img src='${selectedArr[2] || ''}'>`
+    console.dir(selectedItem0);
 }
 
-
-
-//add an eventlistener that is looking for a click and moves it to another box
-
-for (i = 0; i < accessoriesPic.length; i++) {
-    console.log('hitting loop');
-    accessoriesPic.addEventListener('click', (evt) => {
-        console.log(evt);
-    })
+//remove selected items 
+const removeSelectedItem = (index) => {
+    selectedArr.splice(index, 1);
+    selectedItem0.innerHTML = `<img src='${selectedArr[0] || ''}'>`
+    selectedItem1.innerHTML = `<img src='${selectedArr[1] || ''}'>`
+    selectedItem2.innerHTML = `<img src='${selectedArr[2] || ''}'>`
 }
+
+selectedItem0.addEventListener('click', () => removeSelectedItem(0));
+selectedItem1.addEventListener('click', () => removeSelectedItem(1));
+selectedItem2.addEventListener('click', () => removeSelectedItem(2));
+
+
 
 
