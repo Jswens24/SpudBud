@@ -4,7 +4,7 @@ const accessoriesPic = document.querySelectorAll('.accessories-pic');
 const selectedItem0 = document.querySelector('.item-0');
 const selectedItem1 = document.querySelector('.item-1');
 const selectedItem2 = document.querySelector('.item-2');
-const submitBtn = document.querySelector('submit-button')
+const submitBtn = document.querySelector('.submit-button')
 
 let randomPlaceId = null
 let correctArr = []
@@ -70,14 +70,28 @@ selectedItem2.addEventListener('click', () => removeSelectedItem(2));
 
 //submit button functionality
 
-// const doesPlaceMatchItem = (selectedArr) => {
-//     for (i = 0; i < selectedArr.length; i++) {
-//         for (j = 0; j < correctArr.length; j++) {
-//             if (selectedArr[i] === correctArr[j] && )
-//         }
-//     }
-// }
+const doesPlaceMatchItem = () => {
+    selectedArr.sort();
+    correctArr.sort();
+    let isAMatch = false
+    for (i = 0; i < selectedArr.length; i++) {
+        for (j = 0; j < correctArr.length; j++) {
+            if (selectedArr[i] === correctArr[j] &&
+                selectedArr[i + 1] === correctArr[j + 1] &&
+                selectedArr[i + 2] === correctArr[j + 2]) {
+                isAMatch = true;
+            }
+        }
+    }
+    console.log(isAMatch)
+    if (isAMatch === true) {
+        const winPageUrl = './winpage.html'
+        window.location.href = winPageUrl;
+    } else {
+        alert('incorrect, try again')
+    }
+}
 
 
 
-// submitBtn.addEventListener('click', doesPlaceMatchItem)
+submitBtn.addEventListener('click', doesPlaceMatchItem)

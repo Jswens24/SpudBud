@@ -13,6 +13,7 @@ const sequelize = new Sequelize(CONNECTION_STRING, {
 });
 
 let potatoName = 'p';
+let randomPlace = null;
 
 
 const createName = (req, res) => {
@@ -21,13 +22,14 @@ const createName = (req, res) => {
     res.status(200).send(potatoName);
 }
 
+//this grabs a random place from my database
 const gameNamePlace = (req, res) => {
     // console.log(potatoName)
     sequelize.query(`SELECT * FROM places;`)
         .then((dbResult) => {
             const placesArr = dbResult[0];
             let randomPlaceIndex = Math.floor(Math.random() * placesArr.length);
-            const randomPlace = placesArr[randomPlaceIndex];
+            randomPlace = placesArr[randomPlaceIndex];
             const resBody = {
                 potatoName,
                 randomPlace
@@ -40,6 +42,7 @@ const gameNamePlace = (req, res) => {
         })
 }
 
+//this grabs the accessories from my database
 const gameAccessories = (req, res) => {
     sequelize.query(`SELECT * FROM accessories;`)
         .then((dbResult) => {
@@ -52,7 +55,15 @@ const gameAccessories = (req, res) => {
         })
 }
 
+//win message 
+const winMessage = (req, res) => {
+    const resBody = {
+        potatoName,
+        randomPlace,
+    }
+    res.status(200).send(resBody)
+}
 
 
 
-module.exports = { createName, gameNamePlace, gameAccessories }
+module.exports = { createName, gameNamePlace, gameAccessories, winMessage }
