@@ -74,14 +74,10 @@ const doesPlaceMatchItem = () => {
     selectedArr.sort();
     correctArr.sort();
     let isAMatch = false
-    for (i = 0; i < selectedArr.length; i++) {
-        for (j = 0; j < correctArr.length; j++) {
-            if (selectedArr[i] === correctArr[j] &&
-                selectedArr[i + 1] === correctArr[j + 1] &&
-                selectedArr[i + 2] === correctArr[j + 2]) {
-                isAMatch = true;
-            }
-        }
+    if (selectedArr[0] === correctArr[0] &&
+        selectedArr[1] === correctArr[1] &&
+        selectedArr[2] === correctArr[2]) {
+        isAMatch = true;
     }
     console.log(isAMatch)
     if (isAMatch === true) {
