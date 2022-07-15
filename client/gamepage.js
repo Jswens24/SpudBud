@@ -4,6 +4,7 @@ const accessoriesPic = document.querySelectorAll('.accessories-pic');
 const selectedItem0 = document.querySelector('.item-0');
 const selectedItem1 = document.querySelector('.item-1');
 const selectedItem2 = document.querySelector('.item-2');
+const submitBtn = document.querySelector('submit-button')
 
 let randomPlaceId = null
 let correctArr = []
@@ -20,7 +21,9 @@ axios.get('http://localhost:4004/api/gameNamePlace')
         axios.get('http://localhost:4004/api/gameAccessories')
             .then((res) => {
                 const sqlAccessories = res.data;
-                // correctArr = sqlAccessories.filter(element => )
+                correctArr = sqlAccessories.filter(element => element.places_id === randomPlaceId);
+                correctArr = correctArr.map(element => element.accessories_url)
+                console.log(correctArr)
                 const shuffledAccessories = sqlAccessories.sort((a, b) => 0.5 - Math.random());
                 shuffledAccessories.forEach((accessories) => {
                     const accessoriesImg = document.createElement('img');
@@ -40,6 +43,7 @@ axios.get('http://localhost:4004/api/gameNamePlace')
 const selectedArr = [];
 
 const moveToSelectedItem = (evt) => {
+    console.log(selectedArr)
     const selectUrl = evt.target.src;
     if (selectedArr.length < 3) {
         selectedArr.push(selectUrl);
@@ -64,4 +68,16 @@ selectedItem2.addEventListener('click', () => removeSelectedItem(2));
 
 
 
+//submit button functionality
 
+// const doesPlaceMatchItem = (selectedArr) => {
+//     for (i = 0; i < selectedArr.length; i++) {
+//         for (j = 0; j < correctArr.length; j++) {
+//             if (selectedArr[i] === correctArr[j] && )
+//         }
+//     }
+// }
+
+
+
+// submitBtn.addEventListener('click', doesPlaceMatchItem)
