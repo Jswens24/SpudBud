@@ -1,9 +1,9 @@
-/* * {
-    margin: 0px;
-    padding: 0px;
+* {
+    /* margin: 0px;
+    padding: 0px; */
     box-sizing: border-box;
-        outline: 1px solid red !important; 
-} */
+    /* outline: 1px solid red !important;  */
+}
 
 /* body {
     background-image: url('../pictures/dirt-bkg-2.jpeg');
