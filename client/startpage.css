@@ -2,15 +2,18 @@
     /* margin: 0px;
     padding: 0px; */
     box-sizing: border-box;
+    font-family: 'Architects Daughter', cursive;
     /* outline: 1px solid red !important;  */
 }
 
 /* body {
     background-image: url('../pictures/dirt-bkg-2.jpeg');
     background-size: cover;
-}
+} */
 
-h1 {
+
+/* 
+#name-header {
     display: inline;
     background-color: #DDB892;
     padding: 20px;

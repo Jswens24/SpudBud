@@ -1,5 +1,6 @@
 const winHeader = document.querySelector('.win-header');
 const accessoriesContainer = document.querySelector('.accessories-container');
+const savePotatoBtn = document.querySelector('.save-potato-btn');
 
 let randomPlaceId = null;
 
@@ -32,3 +33,18 @@ axios.get('http://localhost:4004/api/gameAccessories')
             accessoriesContainer.appendChild(accessoriesImg);
         })
     });
+
+
+
+
+savePotatoBtn.addEventListener('click', () => {
+    //need to make a post request to save a potato 
+    axios.post('http://localhost:4004/api/winscreen', reqBody)
+        .then((res) => {
+
+            const reqBody = {
+                randomPlaceId
+            }
+        });
+    //i think i need to do something with perams here 
+})
