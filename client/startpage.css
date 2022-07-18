@@ -2,22 +2,137 @@
     /* margin: 0px;
     padding: 0px; */
     box-sizing: border-box;
-    font-family: 'Architects Daughter', cursive;
+    /* font-family: 'Architects Daughter', cursive;
     /* outline: 1px solid red !important;  */
+    font-family: 'Indie Flower', cursive;
 }
 
-/* body {
+body {
     background-image: url('../pictures/dirt-bkg-2.jpeg');
     background-size: cover;
-} */
+}
 
 
-/* 
-#name-header {
-    display: inline;
+
+header {
     background-color: #DDB892;
-    padding: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
     border-radius: 20%;
-} */
+    width: 250px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 40px;
+    color: #60463b;
+}
+
+.enter-name-container {
+    background-color: #DDB892;
+    border-radius: 20%;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2px;
+}
+
+h3 {
+    font-size: 30px;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+p {
+    font-size: 20px;
+}
+
+input {
+    background-color: #EDE0D4;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 20%;
+    border: 0px solid;
+    margin-bottom: 20px;
+}
+
+input:hover {
+    border: 2px solid #60463b;
+}
+
+button {
+    background-color: #EDE0D4;
+    font-size: 20px;
+    border-radius: 20%;
+    border: 0px solid;
+    margin-bottom: 5px;
+    transition: .5s;
+}
+
+button:hover {
+    border: 2px solid #60463b;
+    cursor: pointer;
+    transform: scale(1.2, 1.2);
+}
+
+.how-to-play-contain {
+    background-color: #DDB892;
+    border-radius: 20%;
+    width: 450px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.spudbud-pic {
+    height: 350px;
+    animation: wiggle 4s infinite;
+}
+
+@keyframes wiggle {
+    0% {
+        transform: translate(10px, 20px) rotate(0deg);
+    }
+
+    40% {
+        transform: translate(1px, -1px) rotate(50deg);
+    }
+
+    50% {
+        transform: translate(-20px, 2px) rotate(-50deg);
+    }
+
+    60% {
+        transform: translate(-35px, 1px) rotate(80deg);
+    }
+
+    70% {
+        transform: translate(3px, 71px) rotate(-1deg);
+    }
+
+    80% {
+        transform: translate(80px, -1px) rotate(1deg);
+    }
+
+    90% {
+        transform: translate(90px, 2px) rotate(180deg);
+    }
+
+    100% {
+        transform: translate(10px, 20px) rotate(0deg);
+    }
+}
+
+.middle-flex {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
