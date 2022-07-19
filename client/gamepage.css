@@ -1,30 +1,74 @@
 * {
     box-sizing: border-box;
+    font-family: 'Indie Flower', cursive;
+}
+
+body {
+    background-image: url('../pictures/dirt-bkg-2.jpeg');
+    background-size: cover;
+}
+
+#name-header {
+    background-color: #DDB892;
+    border-radius: 20%;
+    font-size: 40px;
+    width: 75%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+p {
+    background-color: #DDB892;
+    border-radius: 20%;
+    font-size: 20px;
+    text-align: center;
+}
+
+#accessories-container {
+    background-color: #DDB892;
+    border-radius: 20%;
+    height: 350px;
+    width: 550px;
+
 }
 
 .accessories-pic {
     height: 75px;
+    padding: 5px;
+}
+
+.accessories-pic:hover {
+    cursor: pointer;
+    transform: scale(1.2, 1.2)
 }
 
 .potato-with-acces-container {
     display: flex;
+    justify-content: space-around;
+
 }
 
 .spudbud-img {
-    height: 300px;
+    height: 380px;
 }
 
 .three-items-container {
-    height: 100px;
+    height: 150px;
     display: flex;
+    margin-left: 110px;
     /* border: 5px solid black; */
 }
 
 .selected-item {
-    height: 75px;
-    width: 75px;
-    border: 5px solid red;
+    height: 100px;
+    width: 100px;
+    border-radius: 20%;
+    /* border: 5px solid red; */
+    background-color: #D9D9D9;
     padding: 5px;
+    margin-right: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,4 +77,36 @@
 .selected-item img {
     max-height: 100%;
     max-width: 100%;
+}
+
+.selected-item img:hover {
+    cursor: pointer;
+    transform: scale(1.2, 1.2)
+}
+
+.submit-button {
+    background-color: #EDE0D4;
+    font-size: 40px;
+    padding: 10px;
+    /* height: 60px; */
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-top: 40px;
+    margin-right: 280px;
+    border-radius: 20%;
+    border: 0px solid;
+    text-align: center;
+    transition: .5s;
+
+}
+
+.submit-button:hover {
+    border: 2px solid #60463b;
+    cursor: pointer;
+    transform: scale(1.2, 1.2);
+}
+
+.selected-items-and-btn {
+    display: flex;
+    justify-content: space-between;
 }

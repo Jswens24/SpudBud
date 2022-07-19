@@ -81,7 +81,13 @@ const doesPlaceMatchItem = () => {
     }
     console.log(isAMatch)
     if (isAMatch === true) {
-        const winPageUrl = './winpage.html'
+
+        let url_string = (window.location.href);
+        let url = new URL(url_string);
+        let name = url.searchParams.get("name");
+        let id = url.searchParams.get("id");
+        console.log(name, id);
+        const winPageUrl = `./winpage.html?id=${id}&name=${name}`
         window.location.href = winPageUrl;
     } else {
         alert('incorrect, try again')

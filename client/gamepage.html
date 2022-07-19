@@ -5,20 +5,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Indie+Flower&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="./gamepage.css">
     <title>SpudBud</title>
 </head>
 
 <body>
     <header id="name-header"></header>
-    <h5>(Click 3 items that you will need with this location)</h5>
     <section class="potato-with-acces-container">
         <div id="potato-man">
             <img src="../pictures/potato-head copy.png1.png" alt="SpudBud" class="spudbud-img">
         </div>
-        <div id="accessories-container"></div>
+        <div class="instructions-and-accessories">
+            <p>Click 3 items that you will need for this location!</p>
+            <div id="accessories-container"></div>
+        </div>
     </section>
-    <section>
+    <section class="selected-items-and-btn">
         <div class="three-items-container">
             <div class="item-0 selected-item"></div>
             <div class="item-1 selected-item"></div>
@@ -28,7 +34,6 @@
     </section>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="startpage.js"></script>
 
     <script src="gamepage.js"></script>
 </body>

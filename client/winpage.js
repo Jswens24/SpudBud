@@ -37,14 +37,20 @@ axios.get('http://localhost:4004/api/gameAccessories')
 
 
 
+//need to make a post request to save a potato 
 savePotatoBtn.addEventListener('click', () => {
-    //need to make a post request to save a potato 
+    let url_string = (window.location.href);
+    let url = new URL(url_string);
+    let name = url.searchParams.get("name");
+    let id = url.searchParams.get("id");
+    const reqBody = {
+        randomPlaceId,
+        name,
+        id
+    }
     axios.post('http://localhost:4004/api/winscreen', reqBody)
         .then((res) => {
 
-            const reqBody = {
-                randomPlaceId
-            }
         });
-    //i think i need to do something with perams here 
+    //i think i need to do something with params here 
 })
