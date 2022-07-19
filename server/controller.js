@@ -82,9 +82,9 @@ const winMessage = (req, res) => {
 //post request to save the potato and username 
 const savePotatoFunc = (req, res) => {
     const { randomPlaceId, name, id } = req.body;
-    sequelize.query(`INSERT INTO users_places (users_name, places_id)
+    sequelize.query(`INSERT INTO users_places (users_id, places_id)
     VALUES ('${id}', '${randomPlaceId}');`)
-    //how do i send this to my front at the same time? is that a new get request? 
+        .then()
     res.status(200).send(console.log('sent to database'));
 }
 
