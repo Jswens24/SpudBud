@@ -81,12 +81,33 @@ const winMessage = (req, res) => {
 
 //post request to save the potato and username 
 const savePotatoFunc = (req, res) => {
+
     const { randomPlaceId, name, id } = req.body;
     sequelize.query(`INSERT INTO users_places (users_id, places_id)
     VALUES ('${id}', '${randomPlaceId}');`)
-        .then()
-    res.status(200).send(console.log('sent to database'));
+        .then((dbResult) => {
+            sequelize.query(`
+            SELECT users_places.places_id, places.places_id, places.places_name, places.places_url
+                    FROM users_places 
+                    JOIN places ON users_places.places_id=places.places_id
+            WHERE users_id = '${id}';`)
+                .then((savedPlacesData) => {
+                    let usersPlacesData = savedPlacesData[0]
+                    console.log(savedPlacesData);
+                    res.status(200).send(usersPlacesData);
+                })
+        })
+}
+
+const deleteLocation = (req, res) => {
+    const id = req.params;
+    sequelize.query(`
+    DELETE
+    FROM users_places
+    WHERE users_places_id = '${id}';`)
+    res.status(200).send()
+
 }
 
 
-module.exports = { createName, gameNamePlace, gameAccessories, winMessage, savePotatoFunc }
+module.exports = { createName, gameNamePlace, gameAccessories, winMessage, savePotatoFunc, deleteLocation }

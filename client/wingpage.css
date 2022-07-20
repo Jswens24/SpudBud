@@ -1,7 +1,119 @@
+* {
+    font-family: 'Indie Flower', cursive;
+}
+
 .spudbud-img {
     height: 300px;
+    animation: wiggle 5s infinite;
 }
 
 .accessories-pic {
     height: 150px;
+    animation: wiggle 3s 3;
+}
+
+@keyframes wiggle {
+    0% {
+        transform: skewX(9deg);
+    }
+
+    10% {
+        transform: skewX(-8deg);
+    }
+
+    20% {
+        transform: skewX(7deg);
+    }
+
+    30% {
+        transform: skewX(-6deg);
+    }
+
+    40% {
+        transform: skewX(5deg);
+    }
+
+    50% {
+        transform: skewX(-4deg);
+    }
+
+    60% {
+        transform: skewX(3deg);
+    }
+
+    70% {
+        transform: skewX(-2deg);
+    }
+
+    80% {
+        transform: skewX(1deg);
+    }
+
+    90% {
+        transform: skewX(0deg);
+    }
+
+    100% {
+        transform: skewX(7deg);
+    }
+}
+
+
+.win-header {
+    background-color: #DDB892;
+    border-radius: 20%;
+    font-size: 30px;
+    width: 75%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#potato-with-items-contain {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+button {
+    background-color: #EDE0D4;
+    font-size: 30px;
+    border-radius: 20%;
+    border: 0px solid;
+    margin-bottom: 5px;
+    transition: .5s;
+    margin-right: 40px;
+    margin-top: 50px;
+    margin-left: 40px;
+}
+
+
+button:hover {
+    border: 2px solid #60463b;
+    cursor: pointer;
+    transform: scale(1.2, 1.2);
+}
+
+.saved-potao-list-header {
+    background-color: #DDB892;
+    border-radius: 20%;
+    font-size: 30px;
+    width: 55%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.saved-pot-container {
+    background-color: #DDB892;
+    border-radius: 20%;
+    width: 55%;
+}
+
+p {
+    font-size: 30px;
+    padding-left: 25px;
 }

@@ -1,6 +1,8 @@
 const winHeader = document.querySelector('.win-header');
 const accessoriesContainer = document.querySelector('.accessories-container');
 const savePotatoBtn = document.querySelector('.save-potato-btn');
+const savedPotContainer = document.querySelector('.saved-pot-container')
+const savedPotatoPlaceName = document.querySelector('.saved-place-p');
 
 let randomPlaceId = null;
 
@@ -50,7 +52,32 @@ savePotatoBtn.addEventListener('click', () => {
     }
     axios.post('http://localhost:4004/api/winscreen', reqBody)
         .then((res) => {
-
+            console.log(res.data);
+            const savedPotatos = res.data;
+            savedPotatos.forEach((savedPlace) => {
+                const savedPlacePTag = document.createElement('p');
+                savedPlacePTag.textContent = `${savedPlace.places_name}`
+                savedPlacePTag.classList.add('saved-place-p');
+                const deleteBtn = addDeleteBtn
+                savedPotContainer.appendChild(savedPlacePTag, deleteBtn)
+            })
         });
-    //i think i need to do something with params here 
 })
+
+//change potato location from previous
+
+
+
+//delete potato from location 
+const addDeleteBtn = (id) => {
+    const deleteBtn = document.createElement('button');
+    deleteBtn.classList.add('delete-btn');
+    deleteBtn.innerText = 'X';
+    deleteBtn.addEventListener('click', () => {
+        axios.delete(`http://localhost:4004/api/winscreen/${id}`)
+            .then((res) => {
+                alert('location deleted')
+            })
+            .catch((err) => console.log(err))
+    })
+}
