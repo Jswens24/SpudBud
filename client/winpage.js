@@ -2,7 +2,7 @@ const winHeader = document.querySelector('.win-header');
 const accessoriesContainer = document.querySelector('.accessories-container');
 const savePotatoBtn = document.querySelector('.save-potato-btn');
 const savedPotContainer = document.querySelector('.saved-pot-container')
-const savedPotatoPlaceName = document.querySelector('.saved-place-p');
+const savedPotatoPlaceName = document.querySelectorAll('.saved-place-p');
 
 let randomPlaceId = null;
 
@@ -58,13 +58,21 @@ savePotatoBtn.addEventListener('click', () => {
                 const savedPlacePTag = document.createElement('p');
                 savedPlacePTag.textContent = `${savedPlace.places_name}`
                 savedPlacePTag.classList.add('saved-place-p');
-                const deleteBtn = addDeleteBtn
-                savedPotContainer.appendChild(savedPlacePTag, deleteBtn)
+                // const deleteBtn = addDeleteBtn(id)
+                // savedPlacePTag.append(deleteBtn)
+                savedPlacePTag.addEventListener('click', displayPreviousLocation)
+                savedPotContainer.appendChild(savedPlacePTag)
             })
         });
 })
 
 //change potato location from previous
+const displayPreviousLocation = (evt) => {
+    const selectLocation = evt.target;
+    console.log(selectLocation);
+}
+
+
 
 
 

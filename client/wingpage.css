@@ -109,11 +109,12 @@ button:hover {
 
 .saved-pot-container {
     background-color: #DDB892;
-    border-radius: 20%;
+    border-radius: 10%;
     width: 55%;
 }
 
 p {
     font-size: 30px;
-    padding-left: 25px;
+    padding-left: 30px;
+
 }
