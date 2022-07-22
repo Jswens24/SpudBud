@@ -9,7 +9,7 @@
 
 .accessories-pic {
     height: 150px;
-    animation: wiggle 3s 3;
+    animation: wiggle 3s infinite;
 }
 
 @keyframes wiggle {

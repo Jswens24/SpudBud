@@ -15,7 +15,7 @@ app.get('/api/gameNamePlace', gameNamePlace);
 app.get('/api/gameAccessories', gameAccessories);
 app.get('/api/winscreen', winMessage);
 app.post('/api/winscreen', savePotatoFunc);
-app.delete('/api/winscreen', deleteLocation)
+app.delete('/api/winscreen/:id', deleteLocation)
 
 
 app.listen(4004, () => console.log('Vibin on 4004'));

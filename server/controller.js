@@ -100,11 +100,19 @@ const savePotatoFunc = (req, res) => {
 }
 
 const deleteLocation = (req, res) => {
-    const id = req.params;
+    const id = req.params.id;
     sequelize.query(`
     DELETE
     FROM users_places
-    WHERE users_places_id = '${id}';`)
+    WHERE users_places_id = ${id};`)
+    sequelize.query(`
+    SELECT users_places.places_id, places.places_id, places.places_name, places.places_url
+                    FROM users_places 
+                    JOIN places ON users_places.places_id=places.places_id
+    WHERE users_id = '${id}';`)
+        .then((dbResult) => {
+            let newSavedPlaces = dbResult[0];
+        })
     res.status(200).send()
 
 }

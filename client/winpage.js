@@ -58,19 +58,19 @@ savePotatoBtn.addEventListener('click', () => {
                 const savedPlacePTag = document.createElement('p');
                 savedPlacePTag.textContent = `${savedPlace.places_name}`
                 savedPlacePTag.classList.add('saved-place-p');
-                // const deleteBtn = addDeleteBtn(id)
-                // savedPlacePTag.append(deleteBtn)
-                savedPlacePTag.addEventListener('click', displayPreviousLocation)
+                const deleteBtn = addDeleteBtn(`${savedPlace.places_id}`)
+                savedPlacePTag.append(deleteBtn)
+                // savedPlacePTag.addEventListener('click', displayPreviousLocation)
                 savedPotContainer.appendChild(savedPlacePTag)
             })
         });
 })
 
-//change potato location from previous
-const displayPreviousLocation = (evt) => {
-    const selectLocation = evt.target;
-    console.log(selectLocation);
-}
+// change potato location from previous
+// const displayPreviousLocation = (evt) => {
+//     const selectLocation = evt.target;
+//     console.log(selectLocation);
+// }
 
 
 
@@ -81,10 +81,12 @@ const addDeleteBtn = (id) => {
     const deleteBtn = document.createElement('button');
     deleteBtn.classList.add('delete-btn');
     deleteBtn.innerText = 'X';
+
     deleteBtn.addEventListener('click', () => {
         axios.delete(`http://localhost:4004/api/winscreen/${id}`)
             .then((res) => {
                 alert('location deleted')
+                return deleteBtn
             })
             .catch((err) => console.log(err))
     })
