@@ -59,7 +59,7 @@ savePotatoBtn.addEventListener('click', () => {
                 savedPlacePTag.textContent = `${savedPlace.places_name}`
                 savedPlacePTag.classList.add('saved-place-p');
                 const deleteBtn = addDeleteBtn(`${savedPlace.places_id}`)
-                savedPlacePTag.append(deleteBtn)
+                // savedPlacePTag.append(deleteBtn)
                 // savedPlacePTag.addEventListener('click', displayPreviousLocation)
                 savedPotContainer.appendChild(savedPlacePTag)
             })
